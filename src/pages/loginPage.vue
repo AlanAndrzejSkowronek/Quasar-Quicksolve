@@ -27,8 +27,9 @@
 </template>
   
 <script>
+    import { ref } from 'vue'
     import { useQuasar } from 'quasar'
-import axios from 'src/boot/axios'
+    import axios from 'src/boot/axios'
 
     export default {
         setup () {
