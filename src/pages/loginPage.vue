@@ -29,48 +29,55 @@
 <script>
     import { ref } from 'vue'
     import { useQuasar } from 'quasar'
-    import axios from 'src/boot/axios'
+    import axios from 'axios'
 
     export default {
         setup () {
-            const $q = useQuasar()
 
-            return {
-                email: ref(''),
-                password: ref(''),
-                isPwd: ref(true),
-                onSubmit() {
-                    if (!this.email && !this.password){
-                        $q.notify({
-                            type: 'negative',
-                            message: 'Falta el usuario y/o la contraseña.'
-                        })
-                    }
-                    if (!this.login(this.email, this.password)){
-                        $q.notify({
-                            type: 'negative',
-                            message: 'No se ha podido verificar el usuario.'
-                        })
-                    }
-                }
-                
-            }
-        },
-        methods: {
-            login(email, password) {
-                axios.post("http://spring-qs/loginTokenGeneratePrivate", JSON.stringify({
-                    "email": email,
-                    "password": password
-                }, { headers: { 'Content-Type': 'application/json' } }))
+            const $q = useQuasar()
+            const email = ref(null)
+            const password = ref(null)
+            const isPwd = ref(true)
+            
+            function login(email, password) {
+                let data = JSON.stringify({"email": email, "password": password})
+                axios.post("http://localhost:8080/loginTokenGeneratePrivate", data, { headers: { 'Content-Type': 'application/json' } })
                 .then(function(res){
-                    localStorage.setItem('token', "Bearer " + token);
+                    localStorage.setItem('token', "Bearer " + res.data);
+                    $q.notify({
+                        type: 'positive',
+                        message: 'Se ha verificado el usuario.'
+                    })
                     console.log(res)
-                    return true;
                 })
                 .catch(function(res){
+                    $q.notify({
+                        type: 'negative',
+                        message: 'El usuario no se ha podido verificar.'
+                    })
                     console.log(res)
-                    return false;
                 })
+            }
+
+            return {
+                email,
+                password,
+                isPwd,
+                onSubmit() {
+                    if (!email.value || !password.value){
+                        $q.notify({
+                            type: 'negative',
+                            message: 'El usuario y/o la contraseña no se han rellenado.'
+                        })
+                    } else {
+                        login(email.value, password.value)
+                    }
+                },
+                onReset(){
+                    email.value = null
+                    password.value = null
+                }
+                
             }
         }
     }
