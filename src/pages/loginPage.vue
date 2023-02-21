@@ -27,12 +27,49 @@
 </template>
   
 <script>
+    import { useQuasar } from 'quasar'
+import axios from 'src/boot/axios'
+
     export default {
         setup () {
+            const $q = useQuasar()
+
             return {
                 email: ref(''),
                 password: ref(''),
-                isPwd: ref(true)
+                isPwd: ref(true),
+                onSubmit() {
+                    if (!this.email && !this.password){
+                        $q.notify({
+                            type: 'negative',
+                            message: 'Falta el usuario y/o la contraseña.'
+                        })
+                    }
+                    if (!this.login(this.email, this.password)){
+                        $q.notify({
+                            type: 'negative',
+                            message: 'No se ha podido verificar el usuario.'
+                        })
+                    }
+                }
+                
+            }
+        },
+        methods: {
+            login(email, password) {
+                axios.post("http://spring-qs/loginTokenGeneratePrivate", JSON.stringify({
+                    "email": email,
+                    "password": password
+                }, { headers: { 'Content-Type': 'application/json' } }))
+                .then(function(res){
+                    localStorage.setItem('token', "Bearer " + token);
+                    console.log(res)
+                    return true;
+                })
+                .catch(function(res){
+                    console.log(res)
+                    return false;
+                })
             }
         }
     }
