@@ -1,6 +1,8 @@
 import { route } from 'quasar/wrappers'
 import { createRouter, createMemoryHistory, createWebHistory, createWebHashHistory } from 'vue-router'
 import routes from './routes'
+import axios from 'axios'
+import { linkSpring } from 'src/other/Utils';
 
 /*
  * If not building with SSR mode, you can
@@ -24,6 +26,25 @@ export default route(function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE)
+  })
+
+  Router.beforeEach(async to => {
+    if (!(to.path === "/login")){
+      if (localStorage.getItem("token")){
+        let rq = axios.post(linkSpring + "/token/validar", localStorage.getItem("token").replace("Bearer ", ""))
+        
+        let errCatch = await rq.catch(err => {
+          if (err.response.status == "401"){
+            return { path: "/login" }
+          }
+        })
+        if (errCatch.path == "/login"){
+          return errCatch
+        }
+      } else {
+        return { path: "/login" }
+      }
+    }
   })
 
   return Router

@@ -1,14 +1,14 @@
 <template>
 
-<div class="q-pa-md" style="max-width: 400px">
-
+<div class="row flex-center" style="height: 100vh;">
+<div class="col-12" style="max-width: 400px">
     <q-form
     @submit="onSubmit"
     @reset="onReset"
     class="q-gutter-md"
     >
-        <q-input standout="bg-primary text-white" v-model="email" filled type="email" hint="Email" />
-        <q-input standout="bg-primary text-white" v-model="password" filled :type="isPwd ? 'password' : 'text'" hint="Password">
+        <q-input v-model="email" filled type="email" hint="Email" />
+        <q-input v-model="password" filled :type="isPwd ? 'password' : 'text'" hint="Contraseña">
             <template v-slot:append>
                 <q-icon
                     :name="isPwd ? 'visibility_off' : 'visibility'"
@@ -18,11 +18,11 @@
             </template>
         </q-input>
         <div>
-            <q-btn label="Submit" type="submit" color="primary"/>
+            <q-btn label="Enviar" type="submit" color="primary"/>
             <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
         </div>
     </q-form>
-
+</div>
 </div>
 </template>
   
@@ -48,14 +48,13 @@
                         type: 'positive',
                         message: 'Se ha verificado el usuario.'
                     })
-                    console.log(res)
+                    window.location.href = "/#/home";
                 })
                 .catch(function(res){
                     $q.notify({
                         type: 'negative',
-                        message: 'El usuario no se ha podido verificar.'
+                        message: res.response.data
                     })
-                    console.log(res)
                 })
             }
 
