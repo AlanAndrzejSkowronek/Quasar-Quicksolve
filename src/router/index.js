@@ -31,7 +31,8 @@ export default route(function (/* { store, ssrContext } */) {
   Router.beforeEach(async to => {
     if (!(to.path === "/login")){
       if (localStorage.getItem("token")){
-        let rq = axios.post(linkSpring + "/token/validar", localStorage.getItem("token").replace("Bearer ", ""))
+        let tokenString = localStorage.getItem("token").replace("Bearer ", "")
+        let rq = axios.post(linkSpring + "/token/validar", tokenString)
         
         let errCatch = await rq.catch(err => {
           if (err.response.status == "401"){
