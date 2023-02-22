@@ -2,7 +2,7 @@ import { route } from 'quasar/wrappers'
 import { createRouter, createMemoryHistory, createWebHistory, createWebHashHistory } from 'vue-router'
 import routes from './routes'
 import axios from 'axios'
-import { linkSpring } from 'src/other/Utils';
+import { linkSpring } from 'src/other/Utils'
 
 /*
  * If not building with SSR mode, you can
@@ -29,21 +29,21 @@ export default route(function (/* { store, ssrContext } */) {
   })
 
   Router.beforeEach(async to => {
-    if (!(to.path === "/login")){
+    if (!(to.path === "/")){
       if (localStorage.getItem("token")){
         let tokenString = localStorage.getItem("token").replace("Bearer ", "")
         let rq = axios.post(linkSpring + "/token/validar", tokenString)
         
         let errCatch = await rq.catch(err => {
           if (err.response.status == "401"){
-            return { path: "/login" }
+            return { path: "/" }
           }
         })
-        if (errCatch.path == "/login"){
+        if (errCatch.path == "/"){
           return errCatch
         }
       } else {
-        return { path: "/login" }
+        return { path: "/" }
       }
     }
   })

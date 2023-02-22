@@ -30,6 +30,7 @@
     import { ref } from 'vue'
     import { useQuasar } from 'quasar'
     import axios from 'axios'
+    import { linkSpring } from 'src/other/Utils'
 
     export default {
         setup () {
@@ -41,7 +42,7 @@
             
             function login(email, password) {
                 let data = JSON.stringify({"email": email, "password": password})
-                axios.post("http://localhost:8080/loginTokenGeneratePrivate", data, { headers: { 'Content-Type': 'application/json' } })
+                axios.post(linkSpring + "/loginTokenGeneratePrivate", data, { headers: { 'Content-Type': 'application/json' } })
                 .then(function(res){
                     localStorage.setItem('token', "Bearer " + res.data);
                     $q.notify({
