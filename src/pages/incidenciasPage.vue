@@ -4,12 +4,19 @@
         :rows="rows"
         :columns="columns"
         row-key="name"
-    />
+        loading
+    >
+        <template v-slot:body-cell-ACCIONES="props">
+            <q-td :props="props">
+                <q-btn :to="'/incidencia/' + props.row.ID" round color="primary" glossy icon="edit"/>
+            </q-td>
+        </template>
+    </q-table>
     
 </template>
 
 <script>
-    import { ref, onMounted } from 'vue'
+    import { ref } from 'vue'
     import { api } from 'boot/axios'
     import { linkLaravel } from 'src/other/Utils'
 
@@ -116,16 +123,11 @@
                 else return "N/A"
             }
 
-            const construirAcciones = (acciones) => {
-                return `<q-btn round color="primary" glossy icon="${Object.entries(acciones)}" />`
-            }
-
             return {
                 rows,
                 columns,
                 comprobarUsuario,
-                construirNombreUser,
-                construirAcciones
+                construirNombreUser
             }
         },
         async mounted(){
@@ -141,8 +143,7 @@
                     DEPARTAMENTO: r.department.name,
                     USUARIO: this.comprobarUsuario(r.user, r.email),
                     TECH: this.construirNombreUser(r.tech),
-                    ESTADO: r.incidenceState.status_name,
-                    ACCIONES: this.construirAcciones({edit: "/incidence/" + r.id})
+                    ESTADO: r.incidenceState.status_name
                 }
             })
         }
