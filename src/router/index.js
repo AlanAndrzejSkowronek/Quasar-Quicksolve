@@ -28,6 +28,7 @@ export default route(function (/* { store, ssrContext } */) {
     history: createHistory(process.env.MODE === 'ssr' ? void 0 : process.env.VUE_ROUTER_BASE)
   })
 
+  // Interceptor en las paginas privadas de Quasar (todo menos login)
   Router.beforeEach(async to => {
     if (!(to.path === "/")){
       if (localStorage.getItem("token")){
