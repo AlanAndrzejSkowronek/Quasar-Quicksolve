@@ -1,17 +1,20 @@
 <template>
-    <q-table
+    <div class="flex window-height justify-center items-center">
+        <q-table
         title="Incidencias"
         :rows="rows"
         :columns="columns"
         row-key="name"
-        loading
-    >
-        <template v-slot:body-cell-ACCIONES="props">
-            <q-td :props="props">
-                <q-btn :to="'/incidencia/' + props.row.ID" round color="primary" glossy icon="edit"/>
-            </q-td>
-        </template>
-    </q-table>
+        :loading="loading"
+        :table-header-style="{ maxWidth: '100px' }"
+        >
+            <template v-slot:body-cell-ACCIONES="props">
+                <q-td :props="props">
+                    <q-btn :to="'/incidencia/' + props.row.ID" round color="primary" glossy icon="edit"/>
+                </q-td>
+            </template>
+        </q-table>
+    </div>
     
 </template>
 
@@ -44,7 +47,8 @@
             field: 'DESCRIPCION',
             required: true,
             sortable: true,
-            align: 'left'
+            align: 'left',
+            style: ' max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'
         },
         {
             name: 'FECHA_INICIO',
@@ -127,7 +131,8 @@
                 rows,
                 columns,
                 comprobarUsuario,
-                construirNombreUser
+                construirNombreUser,
+                loading: ref(true)
             }
         },
         async mounted(){
@@ -146,7 +151,7 @@
                     ESTADO: r.incidenceState.status_name
                 }
             })
+            this.loading = false
         }
     }
-
 </script>
