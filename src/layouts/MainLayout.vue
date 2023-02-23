@@ -52,10 +52,52 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
   {
+    title: 'Inicio',
+    caption: 'Pagina de Inicio',
+    icon: 'home',
+    link: '/#/home'
+  },
+  {
     title: 'Incidencias',
     caption: 'Tabla de Incidencias',
     icon: 'list_alt',
     link: '/#/incidencias'
+  },
+  {
+    title: 'Usuarios',
+    caption: 'Tabla de Usuarios',
+    icon: 'group',
+    link: '/#/usuarios'
+  },
+  {
+    title: 'Servicios',
+    caption: 'Tabla de Servicios',
+    icon: 'smart_button',
+    link: '/#/servicios'
+  },
+  {
+    title: 'Departamentos',
+    caption: 'Tabla de Departamentos',
+    icon: 'apartment',
+    link: '/#/departamentos'
+  },
+  {
+    title: 'Espacios',
+    caption: 'Tabla de Espacios',
+    icon: 'pin_drop',
+    link: '/#/espacios'
+  },
+  {
+    title: 'Traducciones',
+    caption: 'Generador de Idiomas',
+    icon: 'translate',
+    link: '/#/idiomas'
+  },
+  {
+    title: 'Informes',
+    caption: 'Generador de Informes',
+    icon: 'info',
+    link: '/#/informes'
   }
 ]
 
