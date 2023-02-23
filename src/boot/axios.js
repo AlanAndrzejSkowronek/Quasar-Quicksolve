@@ -9,6 +9,14 @@ import axios from 'axios'
 // for each client)
 const api = axios.create({ baseURL: 'https://api.example.com' })
 
+api.interceptors.request.use(function (config) {
+  config.headers['Authorization'] = localStorage.getItem("token")
+  return config;
+}, function (error) {
+  // Do something with request error
+  return Promise.reject(error);
+});
+
 export default boot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
 
