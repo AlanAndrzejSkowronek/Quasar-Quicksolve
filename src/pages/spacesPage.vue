@@ -1,7 +1,7 @@
 <template>
     <div class="flex window-height justify-center items-center q-pa-md">
         <q-table
-        title="Espacios / Lugares"
+        title="Espacios"
         :rows="rows"
         :columns="columns"
         row-key="name"
