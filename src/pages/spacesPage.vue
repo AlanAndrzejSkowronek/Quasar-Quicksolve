@@ -1,7 +1,7 @@
 <template>
     <div class="flex window-height justify-center items-center q-pa-md">
         <q-table
-        title="Servicios"
+        title="Espacios / Lugares"
         :rows="rows"
         :columns="columns"
         row-key="name"
@@ -20,7 +20,7 @@
             </template>
             <template v-slot:body-cell-ACCIONES="props">
                 <q-td :props="props">
-                    <q-btn :to="'/servicio/' + props.row.ID" round color="primary" glossy icon="edit"/>
+                    <q-btn :to="'/espacio/' + props.row.ID" round color="primary" glossy icon="edit"/>
                 </q-td>
             </template>
 
@@ -29,7 +29,7 @@
                 <q-card>
                     <q-card-section>
                         <strong class="q-pr-sm">{{ props.row.NOMBRE }}</strong>
-                        <q-btn :to="'/servicio/' + props.row.ID" round color="primary" glossy icon="edit" :size="12"/>
+                        <q-btn :to="'/espacio/' + props.row.ID" round color="primary" glossy icon="edit" :size="12"/>
                     </q-card-section>
                     <q-separator />
                     <q-list>
@@ -56,14 +56,11 @@
     import { linkLaravel } from 'src/other/Utils'
 
     onMounted(async () => {
-        let services = await api.get(linkLaravel + "/services")
-        rows.value = services.data.map(r =>{
+        let spaces = await api.get(linkLaravel + "/spaces")
+        rows.value = spaces.data.map(r =>{
             return {
                 ID: r.id,
-                NOMBRE: r.name,
-                PRECIO: r.price,
-                IVA: r.tax + "%",
-                VENTAJAS: r.advantages.map((v, idx) => (idx + 1) + ". " + v.name[0].name),
+                NOMBRE: r.name        
             }
         })
         loading.value = false
@@ -75,8 +72,6 @@
     let columns = [
         { name: 'ID', label: 'ID', field: 'ID', required: true, sortable: true, align: 'left' },
         { name: 'NOMBRE', label: 'Nombre', field: 'NOMBRE', required: true, sortable: true, align: 'left'},
-        { name: 'PRECIO', label: 'Precio', field: 'PRECIO', required: true, sortable: true, align: 'left'},
-        { name: 'IVA', label: 'IVA', field: 'IVA', required: true, sortable: true, align: 'left' },
         { name: 'ACCIONES', label: 'Acciones', field: 'ACCIONES', required: true, sortable: true, align: 'center' }  
     ]
 </script>
