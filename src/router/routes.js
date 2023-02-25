@@ -55,6 +55,13 @@ const routes = [
       { path: '', component: () => import('pages/edit/incidenceEditPage.vue') }
     ]
   },
+  {
+    path: '/usuario/:id',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/edit/userEditPage.vue') }
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

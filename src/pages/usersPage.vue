@@ -56,7 +56,8 @@
     import { linkLaravel } from 'src/other/Utils'
 
     const construirNombreUser = (user) => {
-        return user.user_data.name + " " + user.user_data.first_surname + " " + user.user_data.second_surname 
+        let secondSurname = user.user_data.second_surname ? user.user_data.second_surname : ''
+        return user.user_data.name + " " + user.user_data.first_surname + " " + secondSurname
     }
 
     const construirFecha = (date) => {

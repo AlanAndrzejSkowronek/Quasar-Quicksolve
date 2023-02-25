@@ -1,6 +1,6 @@
 <template>
-      <div class="q-pa-xl q-gutter-lg">
-        <q-card>
+      <div class="q-pa-xl q-gutter-lg flex window-height justify-center items-center">
+        <q-card class="basis-flex-card">
             <q-card-section>
                 <div class="text-h6"> Incidencia #{{ id }} </div>
             </q-card-section>
@@ -51,19 +51,40 @@
                         </div>
                     </div>
                 </q-form>
+                <q-inner-loading
+                    :showing="visible"
+                    label="Porfavor espere..."
+                    label-style="font-size: 1.5em; color: white; padding: 7.5px; background-color: rgba(0, 0, 0, 0.75); border-radius: 8px; margin-top: 12px;"
+                />
             </q-card-section>
         </q-card>
     </div>
 </template>
 
+<style>
+
+.basis-flex-card {
+    flex-basis: 67.5%;
+}
+
+@media (max-width: 1000px) {
+    .basis-flex-card {
+        flex-basis: 100%;
+    }
+}
+
+</style>
+
 <script setup>
-    import { api } from 'src/boot/axios';
-    import { linkLaravel } from 'src/other/Utils';
+    import { api } from 'src/boot/axios'
+    import { linkLaravel } from 'src/other/Utils'
+    import { useQuasar } from 'quasar'
     import { ref, onMounted } from 'vue'
-    import { useRoute } from 'vue-router';
+    import { useRoute } from 'vue-router'
     // import { useRouter } from 'vue-router';
 
     const route = useRoute()
+    const $q = useQuasar()
     // const router = useRouter()
     let id = route.params.id
     let title = ref(null), 
@@ -73,15 +94,30 @@
     options_departments = ref([]),
     options_spaces = ref([]),
     departments_loaded = ref(false),
-    spaces_loaded = ref(false)
+    spaces_loaded = ref(false),
+    visible = ref(true)
 
     const onSubmit = () => {
-        console.log({
+        visible.value = true
+        api.put(linkLaravel + "/incidence/update", {
             id: id,
             title: title.value,
             description: description.value,
             department_id: department.value.value,
             space_id: space.value.value
+        }).then(function(res) {
+            $q.notify({
+                type: 'positive',
+                message: 'Se ha actualizado correctamente.'
+            })
+            visible.value = false
+            window.location.href = "/#/incidencias"
+        }).catch(function(res){
+            $q.notify({
+                type: 'negative',
+                message: 'Algo ha salido mal.'
+            })
+            visible.value = false
         })
     }
 
@@ -99,6 +135,7 @@
         
         if (department.value.value == null) options_departments.value.push(department.value)
         if (space.value.value == null) options_spaces.value.push(space.value)
+        visible.value = false
     })
 
     const filterFnSpaces = async (val, update, abort) => {
