@@ -1,7 +1,7 @@
 <template>
     <div class="flex window-height justify-center items-center q-pa-md">
         <q-table
-        title="Usuarios"
+        title="Incidencias"
         :rows="rows"
         :columns="columns"
         row-key="name"
@@ -23,7 +23,7 @@
                     <q-btn :to="'/incidencia/' + props.row.ID" round color="primary" glossy icon="edit"/>
                 </q-td>
             </template>
-
+                
             <template v-slot:item="props">
                 <div class="q-pa-xs col-xs-12 col-sm-6 col-md-4 col-lg-3 grid-style-transition">
                 <q-card>
@@ -37,7 +37,7 @@
                     <q-item v-if="r.label != 'Título' && r.label != 'ID' && r.label != 'Acciones'" :key="r.name" v-ripple>
                         <q-item-section>
                             <q-item-label><strong>{{ r.label }}</strong></q-item-label>
-                            <q-item-label>{{ r.value }}</q-item-label>
+                            <q-item-label :style="r.label == 'Descripción' ? 'max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;' : ''">{{ r.value }}</q-item-label>
                         </q-item-section>
                     </q-item>
                     </template>

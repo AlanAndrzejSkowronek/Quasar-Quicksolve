@@ -1,7 +1,7 @@
 <template>
     <div class="flex window-height justify-center items-center q-pa-md">
         <q-table
-        title="Incidencias"
+        title="Usuarios"
         :rows="rows"
         :columns="columns"
         row-key="name"

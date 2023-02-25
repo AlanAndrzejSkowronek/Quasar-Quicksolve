@@ -61,17 +61,19 @@
     import { linkLaravel } from 'src/other/Utils';
     import { ref, onMounted } from 'vue'
     import { useRoute } from 'vue-router';
-    import { useRouter } from 'vue-router';
+    // import { useRouter } from 'vue-router';
 
     const route = useRoute()
-    const router = useRouter()
+    // const router = useRouter()
     let id = route.params.id
     let title = ref(null), 
     description = ref(null), 
     department = ref(null), 
     space = ref(null),
     options_departments = ref([]),
-    options_spaces = ref([])
+    options_spaces = ref([]),
+    departments_loaded = ref(false),
+    spaces_loaded = ref(false)
 
     const onSubmit = () => {
         console.log({
@@ -84,12 +86,12 @@
     }
 
     const gotoHome = () => {
-        router.push({path: "/incidencias"})
+        // router.push({path: "/incidencias"})
     }
 
     onMounted(async () => {
         let incidence = (await api.get(linkLaravel + "/incidence/" + id)).data
-        
+
         title.value = incidence.title
         description.value = incidence.description
         department.value = incidence.department ? { value: incidence.department.id, label: incidence.department.name } : { value: null, label: "N/A" }
@@ -100,11 +102,12 @@
     })
 
     const filterFnSpaces = async (val, update, abort) => {
-        if (options_spaces.value.length > 1) {
+        if (spaces_loaded.value == true) {
             update()
             return
         }
         let spaces = await api.get(linkLaravel + "/spaces")
+        spaces_loaded.value = true
         let spacesParsed = spaces.data.map(s => { return { value: s.id, label: s.name } })
         update(() => {
             spacesParsed.forEach(element => { options_spaces.value.push(element) })
@@ -112,11 +115,12 @@
     }
 
     const filterFnDepartments = async (val, update, abort) => {
-        if (options_departments.value.length > 1) {
+        if (departments_loaded.value == true) {
             update()
             return
         }
         let departments = await api.get(linkLaravel + "/departments")
+        departments_loaded.value = true
         let departmentsParsed = departments.data.map(d => { return { value: d.id, label: d.name } })
         update(() => {
             departmentsParsed.forEach(element => { options_departments.value.push(element) })
