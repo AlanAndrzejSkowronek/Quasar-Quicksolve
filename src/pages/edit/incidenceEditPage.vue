@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col-12 flex justify-end">
                             <q-btn label="Actualizar" type="submit" color="primary" class="q-mx-md" />
-                            <q-btn label="Cancelar" color="negative" class="q-mx-md" @onclick="gotoHome" />
+                            <q-btn label="Cancelar" color="negative" class="q-mx-md" to="/incidencias" />
                         </div>
                     </div>
                 </q-form>
@@ -81,11 +81,9 @@
     import { useQuasar } from 'quasar'
     import { ref, onMounted } from 'vue'
     import { useRoute } from 'vue-router'
-    // import { useRouter } from 'vue-router';
 
     const route = useRoute()
     const $q = useQuasar()
-    // const router = useRouter()
     let id = route.params.id
     let title = ref(null), 
     description = ref(null), 
@@ -119,10 +117,6 @@
             })
             visible.value = false
         })
-    }
-
-    const gotoHome = () => {
-        // router.push({path: "/incidencias"})
     }
 
     onMounted(async () => {
