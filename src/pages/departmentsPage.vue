@@ -21,7 +21,8 @@
             </template>
             <template v-slot:body-cell-ACCIONES="props">
                 <q-td :props="props">
-                    <q-btn :to="'/departamento/' + props.row.ID" round color="primary" glossy icon="edit"/>
+                    <q-btn :to="'/departamento/' + props.row.ID" round color="primary" glossy icon="edit" class="q-ma-xs"/>
+                    <q-btn round color="negative" glossy icon="delete_forever" size="12" @click="borrar(props.row.ID)" class="q-ma-xs"/>
                 </q-td>
             </template>
 
@@ -30,7 +31,8 @@
                 <q-card>
                     <q-card-section>
                         <strong class="q-pr-sm">{{ props.row.NOMBRE }}</strong>
-                        <q-btn :to="'/departamento/' + props.row.ID" round color="primary" glossy icon="edit" size="12"/>
+                        <q-btn :to="'/departamento/' + props.row.ID" round color="primary" glossy icon="edit" size="12" class="q-ma-xs"/>
+                        <q-btn round color="negative" glossy icon="delete_forever" size="12" @click="borrar(props.row.ID)" class="q-ma-xs"/>
                     </q-card-section>
                     <q-separator />
                     <q-list>
@@ -55,6 +57,43 @@
     import { ref, onMounted } from 'vue'
     import { api } from 'boot/axios'
     import { linkLaravel } from 'src/other/Utils'
+    import { useQuasar } from 'quasar'
+
+    const $q = useQuasar()
+
+    const borrar = (id) => {
+        $q.dialog({
+            title: 'Confirmar borrado',
+            message: 'Te gustaría borrar el departamento ' + id + "?",
+            ok: {
+            push: true
+            },
+            cancel: {
+            push: true,
+            color: 'negative'
+            },
+            persistent: true
+        }).onOk(() => {
+            loading.value = true
+            api.delete(linkLaravel + "/department/delete", {data: {
+                id: id
+            }})
+            .then(function (){
+                $q.notify({
+                    type: 'positive',
+                    message: 'Se ha borrado correctamente.'
+                })
+                loading.value = false
+                window.location.href = "/#/home"
+            }).catch(function (){
+                $q.notify({
+                    type: 'negative',
+                    message: 'Algo ha salido mal.'
+                })
+                loading.value = false
+            })
+        })
+    }
 
     onMounted(async () => {
         let departments = await api.get(linkLaravel + "/departments")
