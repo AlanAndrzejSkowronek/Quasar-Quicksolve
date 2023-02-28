@@ -90,6 +90,20 @@ const routes = [
       { path: '', component: () => import('pages/new/spaceNewPage.vue') }
     ]
   },
+  {
+    path: '/departamento/nuevo',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/new/departmentNewPage.vue') }
+    ]
+  },
+  {
+    path: '/servicio/nuevo',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/new/serviceNewPage.vue') }
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

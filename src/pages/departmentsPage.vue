@@ -1,5 +1,6 @@
 <template>
-    <div class="flex window-height justify-center items-center q-pa-md">
+    <div class="flex window-height justify-center items-center column q-pa-md">
+        <q-btn to="/departamento/nuevo" rounded color="primary" glossy icon="add" class="q-ma-md" size="20"/>
         <q-table
         title="Departamentos"
         :rows="rows"

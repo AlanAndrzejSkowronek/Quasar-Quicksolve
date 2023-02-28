@@ -15,7 +15,7 @@
                           />
                       </div>
                       <div class="col-12 col-lg-4 flex justify-around items-center">
-                          <q-btn label="Crear" type="submit" color="primary" class="q-mx-sm" />
+                          <q-btn label="Guardar" type="submit" color="primary" class="q-mx-sm" />
                           <q-btn label="Cancelar" color="negative" class="q-mx-sm" to="/espacios" />
                       </div>
                   </div>
@@ -49,9 +49,7 @@
   import { linkLaravel, translator, getLangs } from 'src/other/Utils'
   import { useQuasar } from 'quasar'
   import { ref } from 'vue'
-  import { useRoute } from 'vue-router'
 
-  const route = useRoute()
   const $q = useQuasar()
   let name = ref(null), 
   nameLangs = null,
@@ -68,7 +66,7 @@
     }).then(function(res) {
         $q.notify({
             type: 'positive',
-            message: 'Se ha actualizado correctamente.'
+            message: 'Se ha guardado correctamente.'
         })
         visible.value = false
         window.location.href = "/#/espacios"

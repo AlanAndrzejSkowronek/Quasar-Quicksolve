@@ -2,7 +2,7 @@
     <div class="q-pa-xl q-gutter-lg flex window-height justify-center items-center">
       <q-card class="basis-flex-card">
           <q-card-section>
-              <div class="text-h6"> Departamento #{{ id }} </div>
+              <div class="text-h6"> Nuevo Departamento </div>
           </q-card-section>
           <q-card-section>
               <q-form @submit="onSubmit" class="q-gutter-md">
@@ -23,7 +23,7 @@
                           />
                       </div>
                       <div class="col-12 col-lg-4 flex justify-around items-center">
-                          <q-btn label="Actualizar" type="submit" color="primary" class="q-mx-sm" />
+                          <q-btn label="Guardar" type="submit" color="primary" class="q-mx-sm" />
                           <q-btn label="Cancelar" color="negative" class="q-mx-sm" to="/departamentos" />
                       </div>
                   </div>
@@ -57,11 +57,8 @@
   import { linkLaravel, translator, getLangs } from 'src/other/Utils'
   import { useQuasar } from 'quasar'
   import { ref, onMounted } from 'vue'
-  import { useRoute } from 'vue-router'
 
-  const route = useRoute()
   const $q = useQuasar()
-  let id = route.params.id
   let name = ref(null), 
   type = ref(null),
   typeOptions = ref([]),
@@ -73,15 +70,14 @@
 
     let langs = (await getLangs()).data
     nameLangs = Object.assign({}, ...await translator([name.value], langs))
-    api.put(linkLaravel + "/department/update", {
-        id: id,
+    api.post(linkLaravel + "/department/save", {
         name: name.value,
         type: type.value.value,
         languages: nameLangs
     }).then(function(res) {
         $q.notify({
             type: 'positive',
-            message: 'Se ha actualizado correctamente.'
+            message: 'Se ha guardado correctamente.'
         })
         visible.value = false
         window.location.href = "/#/departamentos"
@@ -95,10 +91,8 @@
   }
 
   onMounted(async () => {
-      let department = (await api.get(linkLaravel + "/department/" + id)).data
-      name.value = department.name
       typeOptions = [{value: "ROUND_ROBIN", label: "Round Robin"}, {value: "LESS_INCIDENCES_TECH", label: "El tecnico con menor incidencias"}]
-      type.value = typeOptions.find(obj => obj.value === department.type)
+      type.value = typeOptions[0]
       visible.value = false
   })
 
