@@ -69,6 +69,20 @@ const routes = [
       { path: '', component: () => import('pages/edit/serviceEditPage.vue') }
     ]
   },
+  {
+    path: '/departamento/:id',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/edit/departmentEditPage.vue') }
+    ]
+  },
+  {
+    path: '/espacio/:id',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/edit/spaceEditPage.vue') }
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
