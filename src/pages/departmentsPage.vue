@@ -29,7 +29,7 @@
                 <q-card>
                     <q-card-section>
                         <strong class="q-pr-sm">{{ props.row.NOMBRE }}</strong>
-                        <q-btn :to="'/departamento/' + props.row.ID" round color="primary" glossy icon="edit" :size="12"/>
+                        <q-btn :to="'/departamento/' + props.row.ID" round color="primary" glossy icon="edit" size="12"/>
                     </q-card-section>
                     <q-separator />
                     <q-list>

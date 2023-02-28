@@ -5,6 +5,7 @@ export const linkLaravel = "http://localhost:82"
 
 export const translator = async (texts, langs) => {
     let langsFiltered = langs.filter(el => el.lang !== "es" )
+    langsFiltered.push({lang: "fr"})
     let proms = []
     texts.forEach(t => {
         langsFiltered.forEach(l => {
@@ -13,7 +14,7 @@ export const translator = async (texts, langs) => {
     })
     let promises = Promise.all(proms)
     let arrObjs = await promises
-    return arrObjs.reduce((obj, item) => (obj[item.key] = item.value, obj), {})
+    return arrObjs;
 }
 
 const translateApi = async (to, text) => {

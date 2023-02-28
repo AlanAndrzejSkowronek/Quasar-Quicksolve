@@ -99,18 +99,8 @@
     visible.value = true
 
     let langs = (await getLangs()).data
-    adv1Langs = await translator([adv1.value], langs)
-    adv2Langs = await translator([adv2.value], langs)
-    console.log({
-        id: id,
-        name: name.value,
-        price: price.value,
-        tax: tax.value,
-        advantageOne: adv1.value,
-        advantageTwo: adv2.value,
-        advantageOneLangs: adv1Langs,
-        advantageTwoLangs: adv2Langs
-    })
+    adv1Langs = Object.assign({}, ...await translator([adv1.value], langs))
+    adv2Langs = Object.assign({}, ...await translator([adv2.value], langs))
     api.put(linkLaravel + "/service/update", {
         id: id,
         name: name.value,
@@ -126,7 +116,7 @@
             message: 'Se ha actualizado correctamente.'
         })
         visible.value = false
-        window.location.href = "/#/incidencias"
+        window.location.href = "/#/servicios"
     }).catch(function(res){
         $q.notify({
             type: 'negative',
