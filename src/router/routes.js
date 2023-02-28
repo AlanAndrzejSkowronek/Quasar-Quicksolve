@@ -83,6 +83,13 @@ const routes = [
       { path: '', component: () => import('pages/edit/spaceEditPage.vue') }
     ]
   },
+  {
+    path: '/espacio/nuevo',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/new/spaceNewPage.vue') }
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

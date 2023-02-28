@@ -2,7 +2,7 @@
     <div class="q-pa-xl q-gutter-lg flex window-height justify-center items-center">
       <q-card class="basis-flex-card">
           <q-card-section>
-              <div class="text-h6"> Espacio #{{ id }} </div>
+              <div class="text-h6"> Nuevo Espacio </div>
           </q-card-section>
           <q-card-section>
               <q-form @submit="onSubmit" class="q-gutter-md">
@@ -15,7 +15,7 @@
                           />
                       </div>
                       <div class="col-12 col-lg-4 flex justify-around items-center">
-                          <q-btn label="Actualizar" type="submit" color="primary" class="q-mx-sm" />
+                          <q-btn label="Crear" type="submit" color="primary" class="q-mx-sm" />
                           <q-btn label="Cancelar" color="negative" class="q-mx-sm" to="/espacios" />
                       </div>
                   </div>
@@ -48,23 +48,21 @@
   import { api } from 'src/boot/axios'
   import { linkLaravel, translator, getLangs } from 'src/other/Utils'
   import { useQuasar } from 'quasar'
-  import { ref, onMounted } from 'vue'
+  import { ref } from 'vue'
   import { useRoute } from 'vue-router'
 
   const route = useRoute()
   const $q = useQuasar()
-  let id = route.params.id
   let name = ref(null), 
   nameLangs = null,
-  visible = ref(true)
+  visible = ref(false)
 
   const onSubmit = async () => {
     visible.value = true
 
     let langs = (await getLangs()).data
     nameLangs = Object.assign({}, ...await translator([name.value], langs))
-    api.put(linkLaravel + "/space/update", {
-        id: id,
+    api.post(linkLaravel + "/space/save", {
         name: name.value,
         languages: nameLangs
     }).then(function(res) {
@@ -82,11 +80,5 @@
         visible.value = false
     })
   }
-
-  onMounted(async () => {
-      let space = (await api.get(linkLaravel + "/space/" + id)).data
-      name.value = space.name
-      visible.value = false
-  })
 
 </script>
