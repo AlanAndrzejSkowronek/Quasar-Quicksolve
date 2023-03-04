@@ -1,5 +1,7 @@
 <template>
-    <div class="flex window-height justify-center items-center q-pa-md">
+   <h4 class="q-ma-md q-my-xl text-center">Usuarios</h4>
+    
+    <div class="flex justify-center items-center q-pa-md">
         <q-table
         title="Usuarios"
         :rows="rows"

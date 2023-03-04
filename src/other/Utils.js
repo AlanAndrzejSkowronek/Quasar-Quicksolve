@@ -1,11 +1,11 @@
 import { api } from "src/boot/axios"
 
 export const linkSpring = "http://localhost:8080"
-export const linkLaravel = "http://localhost:82"
+export const linkLaravel = "http://localhost:8000"
 
 export const translator = async (texts, langs) => {
     let langsFiltered = langs.filter(el => el.lang !== "es" )
-    langsFiltered.push({lang: "fr"})
+    console.log(langs);
     let proms = []
     texts.forEach(t => {
         langsFiltered.forEach(l => {
@@ -17,7 +17,7 @@ export const translator = async (texts, langs) => {
     return arrObjs;
 }
 
-const translateApi = async (to, text) => {
+export const translateApi = async (to, text) => {    
     let jsonTranslate = {
         languageFrom: "es",
         languageTo: to,

@@ -15,9 +15,14 @@
           Quicksolve
         </q-toolbar-title>
         <div> 
-          Hecho con 
-          <strong>Quasar v{{ $q.version }}</strong> 
-          <small> y mucho amor</small> 
+          Salir 
+          <q-btn
+            flat
+            dense
+            round
+            icon="logout"
+            aria-label="Logout"
+            @click="logout"></q-btn>
         </div>
       </q-toolbar>
     </q-header>
@@ -91,7 +96,7 @@ const linksList = [
     title: 'Traducciones',
     caption: 'Generador de Idiomas',
     icon: 'translate',
-    link: '/#/idiomas'
+    link: '/#/traducciones'
   },
   {
     title: 'Informes',
@@ -117,6 +122,12 @@ export default defineComponent({
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
       }
+    }
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem('token')
+      this.$router.push('/login')
     }
   }
 })

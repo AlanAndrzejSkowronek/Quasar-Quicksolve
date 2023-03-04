@@ -1,5 +1,7 @@
 <template>
-    <div class="flex window-height justify-center items-center q-pa-md">
+   <h4 class="q-ma-md q-my-xl text-center">Incidencias</h4>
+    
+    <div class="flex justify-center items-center q-pa-md">
         <q-table
         title="Incidencias"
         :rows="rows"
@@ -77,10 +79,12 @@
                 DEPARTAMENTO: r.department ? r.department.name : "N/A",
                 USUARIO: comprobarUsuario(r.user, r.email),
                 TECH: construirNombreUser(r.tech),
-                ESTADO: r.incidenceState.status_name
+                ESTADO: r.incidenceState.name
             }
         })
         loading.value = false
+
+        console.log(incidences.data);
     })
     
     let filter = ref('')
