@@ -31,7 +31,6 @@ const $q = useQuasar()
 let fields = []
 const langs = ref([])
 const selectLang = ref('')
-let rows = ref([])
 
 onMounted(async () => {
     $q.loading.show({
@@ -68,12 +67,12 @@ const translate = async () => {
     })
 
     const promises = [];
-    const langToTranslate = selectLang.value.value
+    const langCode = selectLang.value.value
     const toTranslate = fields.map(field => field)
-
+    
     toTranslate.forEach((field) => {
         field.forEach((value) => {
-            promises.push(translateApi(langToTranslate, value.name))
+            promises.push(translateApi(langCode, value.name))
         });
     });
 
@@ -82,19 +81,24 @@ const translate = async () => {
     let counter = 0;
     toTranslate.forEach((element) => {
         element.forEach((element) => {
-            element.name = translated[counter++][langToTranslate];
+            element.name = translated[counter++][langCode];
         });
     });
 
-    save(toTranslate);
+    const language = await translateApi(langCode, selectLang.value.label);
+
+    save(toTranslate,langCode,language);
 }
 
 
-const save = async (language) => {
-    const [departments, spaces, states, advantages, webpage] = language;
+const save = async (toTranslate,langCode,language) => {
+    const [departments, spaces, states, advantages, webpage] = toTranslate;
+
+    console.log(langCode,language[langCode]);
 
     const saveLanguage = await api.post(linkLaravel + '/language/save', {
-        code: selectLang.value.value,
+        language: language[langCode].charAt(0).toUpperCase() + language[langCode].slice(1),
+        code: langCode,
         translatedDeps: departments,
         translatedSpa: spaces,
         translatedSta: states,
