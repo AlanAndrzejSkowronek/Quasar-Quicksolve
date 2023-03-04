@@ -30,9 +30,10 @@
                 :options="department_options"/>
         </div>
 
-        <div class="q-ma-md col-md-2 col-11 self-center">
+        <div class="q-ma-md col-md-2 col-11 self-center justify-center">
             <div>&nbsp;</div>
         <q-btn 
+        :style="{width:'100%'}"
             size="1.1rem" 
             label="Buscar" 
             color="primary" 
@@ -64,7 +65,7 @@
     </div>
 
     <div class="flex justify-center" v-if="canGeneratePdf">
-        <q-btn size="1.2rem"  class="q-mt-md" label="Generar PDF" glossy color="primary" @click="generarPDF" />
+        <q-btn size="1.2rem"  class="q-my-lg" label="Generar PDF" color="primary" @click="generateReport" />
     </div>
 </template>
 
@@ -73,8 +74,7 @@ import { ref, onMounted } from 'vue'
 import { useQuasar } from 'quasar'
 import { api } from 'boot/axios'
 import { linkLaravel } from 'src/other/Utils'
-import { jsPDF } from "jspdf";
-import autoTable from 'jspdf-autotable'
+import { generatePdf } from 'src/other/Utils';
 
 const $q = useQuasar()
 
@@ -133,7 +133,7 @@ const searchIncidences = async () => {
             DESCRIPCION: r.description,
             FECHA_INICIO: r.date_start,
             FECHA_FINAL: r.date_end ? r.date_end : "N/A",
-            PERIODO: r.date_end !== "N/A" ? r.date_period + ' Días' : "N/A",
+            DURACION: r.date_end !== "N/A" ? r.date_period + ' Días' : "N/A",
             ESPACIO: r.space ? r.space.name : "N/A",
             DEPARTAMENTO: r.department ? r.department.name : "N/A",
             USUARIO: r.user ? r.user.username : "N/A",
@@ -164,41 +164,14 @@ let columns = [
     { name: 'TITULO', label: 'Título', field: 'TITULO', required: true, sortable: true, align: 'left' },
     { name: 'FECHA_INICIO', label: 'Fecha de inicio', field: 'FECHA_INICIO', required: true, sortable: true, align: 'left' },
     { name: 'FECHA_FINAL', label: 'Fecha final', field: 'FECHA_FINAL', required: true, sortable: true, align: 'left' },
-    { name: 'PERIODO', label: 'Periodo', field: 'PERIODO', required: true, sortable: true, align: 'left' },
+    { name: 'DURACION', label: 'Duración', field: 'DURACION', required: true, sortable: true, align: 'left' },
     { name: 'ESPACIO', label: 'Espacio', field: 'ESPACIO', required: true, sortable: true, align: 'left' },
     { name: 'DEPARTAMENTO', label: 'Departamento', field: 'DEPARTAMENTO', required: true, sortable: true, align: 'left' },
     { name: 'USUARIO', label: 'Usuario', field: 'USUARIO', required: true, sortable: true, align: 'left' },
     { name: 'TECH', label: 'Técnico', field: 'TECH', required: true, sortable: true, align: 'left' },
 ]
 
-const generarPDF = () => {
-
-    const doc = new jsPDF({
-        orientation: 'landscape',
-        unit: 'px',
-        format: 'a4',
-        compress: true,
-    });
-    const table = document.querySelector("table")
-    const date = new Date()
-
-    const dia = date.getDate().toString().padStart(2, '0')
-    const mes = (date.getMonth() + 1).toString().padStart(2, '0')
-    const anio = date.getFullYear()
-    doc.text("Informe de Incidencias resueltas " + dia + "/" + mes + "/" + anio, 10, 10)
-
-    autoTable(doc,{
-        html: table,
-        theme: 'grid',
-    });
-
-    doc.save("incidences.pdf")
-
-    $q.notify({
-        message: 'PDF generado correctamente',
-        color: 'positive',
-        position: 'bottom-right',
-        timeout: 2000
-    })
+const generateReport = () => {
+    generatePdf(date_start.value, date_end.value)
 }
 </script>

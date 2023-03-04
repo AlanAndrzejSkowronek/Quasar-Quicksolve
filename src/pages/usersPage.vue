@@ -82,7 +82,7 @@
                 NOMBRE_COMPLETO: construirNombreUser(r),
                 CREADO_EN: construirFecha(r.user_data.created),
                 DEPARTAMENTO: r.department ? r.department.name : "N/A",
-                SERVICIO: r.service ? r.service + " " + r.expiration_date : "N/A"
+                SERVICIO: r.service ? r.service.name + " " + r.expiration_date : "N/A"
             }
         })
         loading.value = false

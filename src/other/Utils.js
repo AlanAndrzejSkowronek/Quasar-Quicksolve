@@ -1,4 +1,6 @@
 import { api } from "src/boot/axios"
+import { jsPDF } from "jspdf";
+import autoTable from 'jspdf-autotable'
 
 export const linkSpring = "http://localhost:8080"
 export const linkLaravel = "http://localhost:8000"
@@ -28,4 +30,37 @@ export const translateApi = async (to, text) => {
 
 export const getLangs = async () => {
     return await api.get(linkLaravel + "/lenguajes")
+}
+
+
+export const generatePdf = (start,end) => {
+
+    const doc = new jsPDF({
+        orientation: 'landscape',
+        unit: 'px',
+        format: 'a4',
+        compress: true,
+    });
+    const table = document.querySelector("table")
+    table.querySelectorAll("th").forEach(th => {
+        th.innerHTML = th.innerHTML.replace(/<i.*<\/i>/, "")
+    })
+    const date = new Date()
+
+    const dia = date.getDate().toString().padStart(2, '0')
+    const mes = (date.getMonth() + 1).toString().padStart(2, '0')
+    const anio = date.getFullYear()
+    doc.text("Informe de Incidencias resueltas " + dia + "/" + mes + "/" + anio, 10, 20)
+    
+    doc.text("Fecha de inicio: " + start + "\n", 10, 40)
+    doc.text("Fecha de fin: " + end, 10, 60)
+
+
+    autoTable(doc,{
+        startY: 80,
+        html: table,
+        theme: 'grid',
+    });
+
+    doc.save("Informe_Incidencias_" + start + ".pdf")
 }
