@@ -60,9 +60,6 @@ onMounted(async () => {
     $q.loading.hide()
 })
 
-const deleteLang = async (id) => {
-    console.log(id);
-}
 
 const translate = async () => {
 
