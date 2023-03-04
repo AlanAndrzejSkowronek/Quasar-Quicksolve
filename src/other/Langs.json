@@ -1,0 +1,920 @@
+[
+  {
+    "name": "Abkhaz",
+    "code": "ab",
+    "ISO 639-2": "abk"
+  },
+  {
+    "name": "Afar",
+    "code": "aa",
+    "ISO 639-2": "aar"
+  },
+  {
+    "name": "Africanos",
+    "code": "af",
+    "ISO 639-2": "afr"
+  },
+  {
+    "name": "Akan",
+    "code": "ak",
+    "ISO 639-2": "aka"
+  },
+
+  {
+    "name": "Albania",
+    "code": "sq",
+    "ISO 639-2": "sqi"
+  },
+
+  {
+      "name": "Alemán",
+      "code": "de",
+      "ISO 639-2": "deu"
+    },
+    
+  {
+    "name": "Amárico",
+    "code": "am",
+    "ISO 639-2": "amh"
+  },
+  {
+    "name": "Árabe",
+    "code": "ar",
+    "ISO 639-2": "ara"
+  },
+  {
+    "name": "Aragonés",
+    "code": "an",
+    "ISO 639-2": "arg"
+  },
+  {
+    "name": "Armenio",
+    "code": "hy",
+    "ISO 639-2": "hye"
+  },
+  {
+    "name": "Assamese",
+    "code": "as",
+    "ISO 639-2": "asm"
+  },
+  {
+    "name": "Avaric",
+    "code": "av",
+    "ISO 639-2": "ava"
+  },
+  {
+    "name": "Avestan",
+    "code": "ae",
+    "ISO 639-2": "ave"
+  },
+  {
+    "name": "Aymara",
+    "code": "ay",
+    "ISO 639-2": "aym"
+  },
+  {
+    "name": "Azerbaiyán",
+    "code": "az",
+    "ISO 639-2": "aze"
+  },
+  {
+    "name": "Bambara",
+    "code": "bm",
+    "ISO 639-2": "bam"
+  },
+  {
+    "name": "Bashkir",
+    "code": "ba",
+    "ISO 639-2": "bak"
+  },
+  {
+    "name": "Vasco",
+    "code": "eu",
+    "ISO 639-2": "eus"
+  },
+  {
+    "name": "Belarús",
+    "code": "be",
+    "ISO 639-2": "bel"
+  },
+  {
+    "name": "Bengalí",
+    "code": "bn",
+    "ISO 639-2": "ben"
+  },
+  {
+    "name": "Bihari",
+    "code": "bh",
+    "ISO 639-2": "bih"
+  },
+  {
+    "name": "Bislama",
+    "code": "bi",
+    "ISO 639-2": "bis"
+  },
+  {
+    "name": "Bosnia",
+    "code": "bs",
+    "ISO 639-2": "bos"
+  },
+  {
+    "name": "Breton",
+    "code": "br",
+    "ISO 639-2": "bre"
+  },
+  {
+    "name": "Búlgaro",
+    "code": "bg",
+    "ISO 639-2": "bul"
+  },
+  {
+    "name": "Burmese",
+    "code": "my",
+    "ISO 639-2": "mya"
+  },
+  {
+    "name": "Catalán",
+    "code": "ca",
+    "ISO 639-2": "cat"
+  },
+  {
+    "name": "Chamorro",
+    "code": "ch",
+    "ISO 639-2": "cha"
+  },
+  {
+    "name": "Chechenio",
+    "code": "ce",
+    "ISO 639-2": "che"
+  },
+  {
+    "name": "Chichewa, Chewa, Nyanja",
+    "code": "ny",
+    "ISO 639-2": "nya"
+  },
+  {
+    "name": "Chino",
+    "code": "zh",
+    "ISO 639-2": "zho"
+  },
+  {
+    "name": "Chuvashia",
+    "code": "cv",
+    "ISO 639-2": "chv"
+  },
+  {
+    "name": "Cornualles",
+    "code": "kw",
+    "ISO 639-2": "cor"
+  },
+  {
+    "name": "Corso",
+    "code": "co",
+    "ISO 639-2": "cos"
+  },
+  {
+    "name": "Cree",
+    "code": "cr",
+    "ISO 639-2": "cre"
+  },
+  {
+    "name": "Croacia",
+    "code": "hr",
+    "ISO 639-2": "hrv"
+  },
+  {
+    "name": "Checo",
+    "code": "cs",
+    "ISO 639-2": "ces"
+  },
+  {
+    "name": "Danés",
+    "code": "da",
+    "ISO 639-2": "dan"
+  },
+  {
+    "name": "Divehi, Dhivehi, Maldivas",
+    "code": "dv",
+    "ISO 639-2": "div"
+  },
+  {
+    "name": "Holandés",
+    "code": "nl",
+    "ISO 639-2": "nld"
+  },
+  {
+    "name": "Dzongkha",
+    "code": "dz",
+    "ISO 639-2": "dzo"
+  },
+  {
+    "name": "Inglés",
+    "code": "en",
+    "ISO 639-2": "eng"
+  },
+  {
+    "name": "Esperanto",
+    "code": "eo",
+    "ISO 639-2": "epo"
+  },
+  {
+    "name": "Estonia",
+    "code": "et",
+    "ISO 639-2": "est"
+  },
+  {
+    "name": "Ewe",
+    "code": "ee",
+    "ISO 639-2": "ewe"
+  },
+  {
+    "name": "Faroese",
+    "code": "fo",
+    "ISO 639-2": "fao"
+  },
+  {
+    "name": "Fiji",
+    "code": "fj",
+    "ISO 639-2": "fij"
+  },
+  {
+    "name": "Finlandés",
+    "code": "fi",
+    "ISO 639-2": "fin"
+  },
+  {
+    "name": "Francés",
+    "code": "fr",
+    "ISO 639-2": "fra"
+  },
+  {
+    "name": "Fula, Fulah, Pulaar, Pular",
+    "code": "ff",
+    "ISO 639-2": "ful"
+  },
+  {
+    "name": "Galicia",
+    "code": "gl",
+    "ISO 639-2": "glg"
+  },
+  {
+    "name": "Georgiano",
+    "code": "ka",
+    "ISO 639-2": "kat"
+  },
+  {
+    "name": "Griego Moderno",
+    "code": "el",
+    "ISO 639-2": "ell"
+  },
+  {
+    "name": "Guaraní",
+    "code": "gn",
+    "ISO 639-2": "grn"
+  },
+  {
+    "name": "Gujarati",
+    "code": "gu",
+    "ISO 639-2": "guj"
+  },
+  {
+    "name": "Haitiano, creole haitiano",
+    "code": "ht",
+    "ISO 639-2": "hat"
+  },
+  {
+    "name": "Hausa",
+    "code": "ha",
+    "ISO 639-2": "hau"
+  },
+  {
+    "name": "Hebreo (moderno)",
+    "code": "he",
+    "ISO 639-2": "heb"
+  },
+  {
+    "name": "Herero",
+    "code": "hz",
+    "ISO 639-2": "her"
+  },
+  {
+    "name": "Hindi",
+    "code": "hi",
+    "ISO 639-2": "hin"
+  },
+  {
+    "name": "Hiri Motu",
+    "code": "ho",
+    "ISO 639-2": "hmo"
+  },
+  {
+    "name": "Húngaro",
+    "code": "hu",
+    "ISO 639-2": "hun"
+  },
+  {
+    "name": "Interlingua",
+    "code": "ia",
+    "ISO 639-2": "ina"
+  },
+  {
+    "name": "Indonesio",
+    "code": "id",
+    "ISO 639-2": "ind"
+  },
+  {
+    "name": "Interlingue",
+    "code": "ie",
+    "ISO 639-2": "ile"
+  },
+  {
+    "name": "Irlanda",
+    "code": "ga",
+    "ISO 639-2": "gle"
+  },
+  {
+    "name": "Igbo",
+    "code": "ig",
+    "ISO 639-2": "ibo"
+  },
+  {
+    "name": "Inupiaq",
+    "code": "ik",
+    "ISO 639-2": "ipk"
+  },
+  {
+    "name": "Ido",
+    "code": "io",
+    "ISO 639-2": "ido"
+  },
+  {
+    "name": "Islandés",
+    "code": "is",
+    "ISO 639-2": "isl"
+  },
+  {
+    "name": "Italiano",
+    "code": "it",
+    "ISO 639-2": "ita"
+  },
+  {
+    "name": "Inuktitut",
+    "code": "iu",
+    "ISO 639-2": "iku"
+  },
+  {
+    "name": "Japonés",
+    "code": "ja",
+    "ISO 639-2": "jpn"
+  },
+  {
+    "name": "Javanés",
+    "code": "jv",
+    "ISO 639-2": "jav"
+  },
+  {
+    "name": "Kalaallisut, Groenlandia",
+    "code": "kl",
+    "ISO 639-2": "kal"
+  },
+  {
+    "name": "Canarés",
+    "code": "kn",
+    "ISO 639-2": "kan"
+  },
+  {
+    "name": "Kanuri",
+    "code": "kr",
+    "ISO 639-2": "kau"
+  },
+  {
+    "name": "Cachemira",
+    "code": "ks",
+    "ISO 639-2": "kas"
+  },
+  {
+    "name": "Kazajstán",
+    "code": "kk",
+    "ISO 639-2": "kaz"
+  },
+  {
+    "name": "Khmer",
+    "code": "km",
+    "ISO 639-2": "khm"
+  },
+  {
+    "name": "Kikuyu, Gikuyu",
+    "code": "ki",
+    "ISO 639-2": "kik"
+  },
+  {
+    "name": "Kinyarwanda",
+    "code": "rw",
+    "ISO 639-2": "kin"
+  },
+  {
+    "name": "Kirguises, Kirguistán",
+    "code": "ky",
+    "ISO 639-2": "kir"
+  },
+  {
+    "name": "Komi",
+    "code": "kv",
+    "ISO 639-2": "kom"
+  },
+  {
+    "name": "Kongo",
+    "code": "kg",
+    "ISO 639-2": "kon"
+  },
+  {
+    "name": "Corea",
+    "code": "ko",
+    "ISO 639-2": "kor"
+  },
+  {
+    "name": "Kurdo",
+    "code": "ku",
+    "ISO 639-2": "kur"
+  },
+  {
+    "name": "Kwanyama, Kuanyama",
+    "code": "kj",
+    "ISO 639-2": "kua"
+  },
+  {
+    "name": "Latin",
+    "code": "la",
+    "ISO 639-2": "lat"
+  },
+  {
+    "name": "Luxemburgués, Luxemburgués",
+    "code": "lb",
+    "ISO 639-2": "ltz"
+  },
+  {
+    "name": "Luganda",
+    "code": "lg",
+    "ISO 639-2": "lug"
+  },
+  {
+    "name": "Limburgués, Limburgan, Limburger",
+    "code": "li",
+    "ISO 639-2": "lim"
+  },
+  {
+    "name": "Lingala",
+    "code": "ln",
+    "ISO 639-2": "lin"
+  },
+  {
+    "name": "Lao",
+    "code": "lo",
+    "ISO 639-2": "lao"
+  },
+  {
+    "name": "Lituano",
+    "code": "lt",
+    "ISO 639-2": "lit"
+  },
+  {
+    "name": "Luba-Katanga",
+    "code": "lu",
+    "ISO 639-2": "lub"
+  },
+  {
+    "name": "Letonia",
+    "code": "lv",
+    "ISO 639-2": "lav"
+  },
+  {
+    "name": "Manx",
+    "code": "gv",
+    "ISO 639-2": "glv"
+  },
+  {
+    "name": "Macedonia",
+    "code": "mk",
+    "ISO 639-2": "mkd"
+  },
+  {
+    "name": "Madagascar",
+    "code": "mg",
+    "ISO 639-2": "mlg"
+  },
+  {
+    "name": "Malayo",
+    "code": "ms",
+    "ISO 639-2": "msa"
+  },
+  {
+    "name": "Malayalam",
+    "code": "ml",
+    "ISO 639-2": "mal"
+  },
+  {
+    "name": "Maltés",
+    "code": "mt",
+    "ISO 639-2": "mlt"
+  },
+  {
+    "name": "Māori",
+    "code": "mi",
+    "ISO 639-2": "mri"
+  },
+  {
+    "name": "Maratí (Marathi)",
+    "code": "mr",
+    "ISO 639-2": "mar"
+  },
+  {
+    "name": "De las Islas Marshall",
+    "code": "mh",
+    "ISO 639-2": "mah"
+  },
+  {
+    "name": "Mongolia",
+    "code": "mn",
+    "ISO 639-2": "mon"
+  },
+  {
+    "name": "Nauru",
+    "code": "na",
+    "ISO 639-2": "nau"
+  },
+  {
+    "name": "Navajo, Navaho",
+    "code": "nv",
+    "ISO 639-2": "nav"
+  },
+  {
+    "name": "Noruego Bokmål",
+    "code": "nb",
+    "ISO 639-2": "nob"
+  },
+  {
+    "name": "Ndebele del Norte",
+    "code": "nd",
+    "ISO 639-2": "nde"
+  },
+  {
+    "name": "Nepali",
+    "code": "ne",
+    "ISO 639-2": "nep"
+  },
+  {
+    "name": "Ndonga",
+    "code": "ng",
+    "ISO 639-2": "ndo"
+  },
+  {
+    "name": "Noruego Nynorsk",
+    "code": "nn",
+    "ISO 639-2": "nno"
+  },
+  {
+    "name": "Noruego",
+    "code": "no",
+    "ISO 639-2": "nor"
+  },
+  {
+    "name": "Nuosu",
+    "code": "ii",
+    "ISO 639-2": "iii"
+  },
+  {
+    "name": "Ndebele del sur",
+    "code": "nr",
+    "ISO 639-2": "nbl"
+  },
+  {
+    "name": "Occitano",
+    "code": "oc",
+    "ISO 639-2": "oci"
+  },
+  {
+    "name": "Ojibwe, Ojibwa",
+    "code": "oj",
+    "ISO 639-2": "oji"
+  },
+  {
+    "name": "Oromo",
+    "code": "om",
+    "ISO 639-2": "orm"
+  },
+  {
+    "name": "Oriya",
+    "code": "or",
+    "ISO 639-2": "ori"
+  },
+  {
+    "name": "Osetia del Sur, osetio",
+    "code": "os",
+    "ISO 639-2": "oss"
+  },
+  {
+    "name": "Panjabi, Punjabi",
+    "code": "pa",
+    "ISO 639-2": "pan"
+  },
+  {
+    "name": "Pāli",
+    "code": "pi",
+    "ISO 639-2": "pli"
+  },
+  {
+    "name": "Persa",
+    "code": "fa",
+    "ISO 639-2": "fas"
+  },
+  {
+    "name": "Polaco",
+    "code": "pl",
+    "ISO 639-2": "pol"
+  },
+  {
+    "name": "Pashto, Pushto",
+    "code": "ps",
+    "ISO 639-2": "pus"
+  },
+  {
+    "name": "Portugués",
+    "code": "pt",
+    "ISO 639-2": "por"
+  },
+  {
+    "name": "Quechua",
+    "code": "qu",
+    "ISO 639-2": "que"
+  },
+  {
+    "name": "Romanche",
+    "code": "rm",
+    "ISO 639-2": "roh"
+  },
+  {
+    "name": "Kirundi",
+    "code": "rn",
+    "ISO 639-2": "run"
+  },
+  {
+    "name": "Rumania, Moldavia, Moldavan",
+    "code": "ro",
+    "ISO 639-2": "ron"
+  },
+  {
+    "name": "Ruso",
+    "code": "ru",
+    "ISO 639-2": "rus"
+  },
+  {
+    "name": "Sánscrito (samskrta)",
+    "code": "sa",
+    "ISO 639-2": "san"
+  },
+  {
+    "name": "Sardo",
+    "code": "sc",
+    "ISO 639-2": "srd"
+  },
+  {
+    "name": "Sindhi",
+    "code": "sd",
+    "ISO 639-2": "snd"
+  },
+  {
+    "name": "Sami del norte",
+    "code": "se",
+    "ISO 639-2": "sme"
+  },
+  {
+    "name": "Samoa",
+    "code": "sm",
+    "ISO 639-2": "smo"
+  },
+  {
+    "name": "Sango",
+    "code": "sg",
+    "ISO 639-2": "sag"
+  },
+  {
+    "name": "Serbio",
+    "code": "sr",
+    "ISO 639-2": "srp"
+  },
+  {
+    "name": "Gaélico escocés, gaélico",
+    "code": "gd",
+    "ISO 639-2": "gla"
+  },
+  {
+    "name": "Shona",
+    "code": "sn",
+    "ISO 639-2": "sna"
+  },
+  {
+    "name": "Cingalés, singalés",
+    "code": "si",
+    "ISO 639-2": "sin"
+  },
+  {
+    "name": "Eslovaca",
+    "code": "sk",
+    "ISO 639-2": "slk"
+  },
+  {
+    "name": "Esloveno",
+    "code": "sl",
+    "ISO 639-2": "slv"
+  },
+  {
+    "name": "Somalí",
+    "code": "so",
+    "ISO 639-2": "som"
+  },
+  {
+    "name": "Southern Sotho",
+    "code": "st",
+    "ISO 639-2": "sot"
+  },
+  {
+    "name": "Español, castellano",
+    "code": "es",
+    "ISO 639-2": "spa"
+  },
+  {
+    "name": "Sundanese",
+    "code": "su",
+    "ISO 639-2": "sun"
+  },
+  {
+    "name": "Swahili",
+    "code": "sw",
+    "ISO 639-2": "swa"
+  },
+  {
+    "name": "Swati",
+    "code": "ss",
+    "ISO 639-2": "ssw"
+  },
+  {
+    "name": "Sueco",
+    "code": "sv",
+    "ISO 639-2": "swe"
+  },
+  {
+    "name": "Tamil",
+    "code": "ta",
+    "ISO 639-2": "tam"
+  },
+  {
+    "name": "Telugu",
+    "code": "te",
+    "ISO 639-2": "tel"
+  },
+  {
+    "name": "Tayikistán",
+    "code": "tg",
+    "ISO 639-2": "tgk"
+  },
+  {
+    "name": "Tailandia",
+    "code": "th",
+    "ISO 639-2": "tha"
+  },
+  {
+    "name": "Tigrinya",
+    "code": "ti",
+    "ISO 639-2": "tir"
+  },
+  {
+    "name": "Tibetano estándar, Tibetano, Central",
+    "code": "bo",
+    "ISO 639-2": "bod"
+  },
+  {
+    "name": "Turkmenistán",
+    "code": "tk",
+    "ISO 639-2": "tuk"
+  },
+  {
+    "name": "Tagalo",
+    "code": "tl",
+    "ISO 639-2": "tgl"
+  },
+  {
+    "name": "Tswana",
+    "code": "tn",
+    "ISO 639-2": "tsn"
+  },
+  {
+    "name": "Tonga (Islas Tonga)",
+    "code": "to",
+    "ISO 639-2": "ton"
+  },
+  {
+    "name": "Turco",
+    "code": "tr",
+    "ISO 639-2": "tur"
+  },
+  {
+    "name": "Tsonga",
+    "code": "ts",
+    "ISO 639-2": "tso"
+  },
+  {
+    "name": "Tártara",
+    "code": "tt",
+    "ISO 639-2": "tat"
+  },
+  {
+    "name": "Twi",
+    "code": "tw",
+    "ISO 639-2": "twi"
+  },
+  {
+    "name": "Tahitian",
+    "code": "ty",
+    "ISO 639-2": "tah"
+  },
+  {
+    "name": "Uighur, Uyghur",
+    "code": "ug",
+    "ISO 639-2": "uig"
+  },
+  {
+    "name": "Ucrania",
+    "code": "uk",
+    "ISO 639-2": "ukr"
+  },
+  {
+    "name": "Urdu",
+    "code": "ur",
+    "ISO 639-2": "urd"
+  },
+  {
+    "name": "Uzbeko",
+    "code": "uz",
+    "ISO 639-2": "uzb"
+  },
+  {
+    "name": "Venda",
+    "code": "ve",
+    "ISO 639-2": "ven"
+  },
+  {
+    "name": "Vietnamita",
+    "code": "vi",
+    "ISO 639-2": "vie"
+  },
+  {
+    "name": "Volapük",
+    "code": "vo",
+    "ISO 639-2": "vol"
+  },
+  {
+    "name": "Valonia",
+    "code": "wa",
+    "ISO 639-2": "wln"
+  },
+  {
+    "name": "Galés",
+    "code": "cy",
+    "ISO 639-2": "cym"
+  },
+  {
+    "name": "Wolof",
+    "code": "wo",
+    "ISO 639-2": "wol"
+  },
+  {
+    "name": "Oeste de Frisia",
+    "code": "fy",
+    "ISO 639-2": "fry"
+  },
+  {
+    "name": "Xhosa",
+    "code": "xh",
+    "ISO 639-2": "xho"
+  },
+  {
+    "name": "Yiddish",
+    "code": "yi",
+    "ISO 639-2": "yid"
+  },
+  {
+    "name": "Yoruba",
+    "code": "yo",
+    "ISO 639-2": "yor"
+  },
+  {
+    "name": "Zhuang, Chuang",
+    "code": "za",
+    "ISO 639-2": "zha"
+  },
+  {
+    "name": "Zulu",
+    "code": "zu",
+    "ISO 639-2": "zul"
+  }
+ ]

@@ -96,7 +96,7 @@ const linksList = [
     title: 'Traducciones',
     caption: 'Generador de Idiomas',
     icon: 'translate',
-    link: '/#/idiomas'
+    link: '/#/traducciones'
   },
   {
     title: 'Informes',
