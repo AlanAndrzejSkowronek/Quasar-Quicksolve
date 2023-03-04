@@ -1,25 +1,13 @@
 <template>
-    <h4 class="q-ma-md q-mt-xl">Agregar nuevo Idioma</h4>
+    <h4 class="q-ma-md q-my-xl text-center">Agregar nuevo Idioma</h4>
 
-    <div class="row">
+    <div class="row q-mb-xl">
 
-        <div class="col-12 flex justify-start items-center q-mx-sm">
+        <div class="col-12 flex justify-center items-center">
         <q-select class="selectLang q-ma-md" v-model="selectLang" filled label="Selecciona un idioma" :options="langs"
             @input="selectLang" />
 
         <q-btn label="Traducir" color="primary" class="q-mx-sm" @click="translate" />
-    </div>
-
-    <div class="col flex justify-start items-center q-mx-sm">
-        <q-table
-      grid
-      title="Idiomas actuales"
-      :rows="rows"
-      :columns="columns"
-      row-key="name"
-      :filter="filter"
-      hide-header
-    />
     </div>
 
     </div>
@@ -43,11 +31,12 @@ const $q = useQuasar()
 let fields = []
 const langs = ref([])
 const selectLang = ref('')
+let rows = ref([])
 
 onMounted(async () => {
-    // $q.loading.show({
-    //     message: 'Cargando idiomas... espere por favor'
-    // })
+    $q.loading.show({
+        message: 'Cargando idiomas... espere por favor'
+    })
     const { data } = await api.get(linkLaravel + '/language/fields')
         .then((response) => {
             return response
@@ -71,6 +60,9 @@ onMounted(async () => {
     $q.loading.hide()
 })
 
+const deleteLang = async (id) => {
+    console.log(id);
+}
 
 const translate = async () => {
 

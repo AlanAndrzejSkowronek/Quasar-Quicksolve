@@ -1,5 +1,5 @@
 <template>
-    <h4 class="q-ma-md q-mt-xl">Generar Informes</h4>
+   <h4 class="q-ma-md q-my-xl text-center">Generar Informes</h4>
     <div class="row q-mx-auto justify-center q-my-xl">
         <div class="q-ma-md q-mx-md col-md-2 col-11">
             Inicio
@@ -28,7 +28,7 @@
 
     <div class="flex justify-center items-center">
         <q-table :rows="rows" :title="'Incidencias Resuletas'" :columns="columns" row-key="name" :loading="loading"
-            style="width: 80%;" :no-data-label="noDataLabel"
+            style="width: 80%;" :no-data-label="noDataLabel" :filter="filter"
             loading-label="Cargando los resultados..." :grid="$q.screen.lt.lg" id="#incidences-table">
 
             <template v-slot:top-right>

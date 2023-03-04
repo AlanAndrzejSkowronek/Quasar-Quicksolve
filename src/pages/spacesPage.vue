@@ -1,5 +1,7 @@
 <template>
-    <div class="flex window-height justify-center items-center column q-pa-md">
+   <h4 class="q-ma-md q-my-xl text-center">Espacios</h4>
+
+    <div class="flex justify-center items-center column q-pa-md">
         <q-btn to="/espacio/nuevo" rounded color="primary" glossy icon="add" class="q-ma-md" size="20"/>
         <q-table
         title="Espacios"
