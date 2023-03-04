@@ -1,36 +1,58 @@
 <template>
    <h4 class="q-ma-md q-my-xl text-center">Generar Informes</h4>
-    <div class="row q-mx-auto justify-center q-my-xl">
+        <q-form @submit="onSubmit" class="row q-mx-auto justify-center q-my-xl">
         <div class="q-ma-md q-mx-md col-md-2 col-11">
             Inicio
-            <q-input v-model="date_start"  filled type="date" :max="maxDate" />
+            <q-input 
+                v-model="date_start"  
+                filled type="date" 
+                :max="maxDate" />
         </div>
 
         <div class="q-ma-md col-md-2 col-11">
             Final
-            <q-input v-model="date_end" filled type="date" :max="maxDate" />
+            <q-input 
+             v-model="date_end"
+             filled type="date" 
+             :max="maxDate" 
+             :min="date_start"
+             :disable="date_start === ''"
+             />
         </div>
 
         <div class="q-ma-md col-md-2 col-11">
             Departamento
             <q-select 
-            :loading="loadingSelect" 
-            filled v-model="department" 
-            label="Departamento" 
-            :options="department_options"/>
+                :loading="loadingSelect" 
+                filled 
+                v-model="department" 
+                label="Departamento" 
+                :options="department_options"/>
         </div>
 
         <div class="q-ma-md col-md-2 col-11 self-center">
             <div>&nbsp;</div>
-        <q-btn size="1.1rem" label="Buscar" color="primary" glossy class="q-mx-md" @click="searchIncidences" />
+        <q-btn 
+            size="1.1rem" 
+            label="Buscar" 
+            color="primary" 
+            type="submit" />
         </div>
-    </div>
+        </q-form>
 
     <div class="flex justify-center items-center">
-        <q-table :rows="rows" :title="'Incidencias Resuletas'" :columns="columns" row-key="name" :loading="loading"
-            style="width: 80%;" :no-data-label="noDataLabel" :filter="filter"
-            loading-label="Cargando los resultados..." :grid="$q.screen.lt.lg" id="#incidences-table">
-
+        <q-table 
+            :rows="rows" 
+            :title="'Incidencias Resuletas'" 
+            :columns="columns" 
+            row-key="name" 
+            :loading="loading"
+            style="width: 80%;" 
+            :no-data-label="noDataLabel" 
+            :filter="filter"
+            loading-label="Cargando los resultados..." 
+            :grid="$q.screen.lt.lg" 
+            id="#incidences-table">
             <template v-slot:top-right>
                 <q-input borderless dense debounce="400" v-model="filter" placeholder="Buscar...">
                     <template v-slot:append>
@@ -76,6 +98,7 @@ onMounted(async () => {
     loadingSelect.value = false
 });
 
+
 const searchIncidences = async () => {
 
     loading.value = true
@@ -120,6 +143,19 @@ const searchIncidences = async () => {
     })
 }
 
+
+const onSubmit = () => {
+    if (date_start.value === '' || date_end.value === '') {
+        $q.notify({
+            message: 'Debe seleccionar una fecha de inicio y una fecha final',
+            color: 'negative',
+            position: 'bottom-right',
+            timeout: 2000
+        })
+    } else {
+        searchIncidences()
+    }
+}
 
 let filter = ref('')
 let rows = ref([])
