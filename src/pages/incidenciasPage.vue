@@ -1,11 +1,12 @@
 <template>
-   <h4 class="q-ma-md q-my-xl text-center">Incidencias</h4>
+   <h4 class="q-ma-md q-my-xl text-left">Incidencias</h4>
     
     <div class="flex justify-center items-center q-pa-md">
         <q-table
         title="Incidencias"
         :rows="rows"
         :columns="columns"
+        :style="{width: '100%'}"
         row-key="name"
         :grid="$q.screen.lt.lg"
         :loading="loading"
@@ -22,7 +23,7 @@
             </template>
             <template v-slot:body-cell-ACCIONES="props">
                 <q-td :props="props">
-                    <q-btn :to="'/incidencia/' + props.row.ID" round color="primary" glossy icon="edit"/>
+                    <q-btn :to="'/incidencia/' + props.row.ID"  color="primary"  icon="edit"/>
                 </q-td>
             </template>
                 
@@ -31,7 +32,7 @@
                 <q-card>
                     <q-card-section>
                         <strong class="q-pr-sm">{{ props.row.TITULO }}</strong>
-                        <q-btn :to="'/incidencia/' + props.row.ID" round color="primary" glossy icon="edit" size="12"/>
+                        <q-btn :to="'/incidencia/' + props.row.ID"  color="primary" icon="edit" size="12"/>
                     </q-card-section>
                     <q-separator />
                     <q-list>
@@ -72,7 +73,7 @@
             return {
                 ID: r.id,
                 TITULO: r.title,
-                DESCRIPCION: r.description,
+                // DESCRIPCION: r.description,
                 FECHA_INICIO: r.date_start,
                 FECHA_FINAL: r.date_end ? r.date_end : "N/A",
                 ESPACIO: r.space ? r.space.name : "N/A",
@@ -84,7 +85,6 @@
         })
         loading.value = false
 
-        console.log(incidences.data);
     })
     
     let filter = ref('')
@@ -93,7 +93,7 @@
     let columns = [
         { name: 'ID', label: 'ID', field: 'ID', required: true, sortable: true, align: 'left' },
         { name: 'TITULO', label: 'Título', field: 'TITULO', required: true, sortable: true, align: 'left'},
-        { name: 'DESCRIPCION', label: 'Descripción', field: 'DESCRIPCION', required: true, sortable: true, align: 'left', style: 'max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;' },
+        // { name: 'DESCRIPCION', label: 'Descripción', field: 'DESCRIPCION', required: true, sortable: true, align: 'left', style: 'max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;' },
         { name: 'FECHA_INICIO', label: 'Fecha de inicio', field: 'FECHA_INICIO', required: true, sortable: true, align: 'left' },
         { name: 'FECHA_FINAL', label: 'Fecha final', field: 'FECHA_FINAL', required: true, sortable: true, align: 'left' },
         { name: 'ESPACIO', label: 'Espacio', field: 'ESPACIO', required: true, sortable: true, align: 'left' },

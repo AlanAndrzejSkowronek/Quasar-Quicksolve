@@ -1,17 +1,21 @@
 <template>
-    <h4 class="q-ma-md q-my-xl text-center">Agregar nuevo Idioma</h4>
+    <h4 class="q-ma-md q-my-xl text-left">Agregar nuevo Idioma</h4>
 
     <div class="row q-mb-xl">
 
         <div class="col-12 flex justify-center items-center">
-        <q-select class="selectLang q-ma-md" v-model="selectLang" filled label="Selecciona un idioma" :options="langs"
-            @input="selectLang" />
+            <q-select class="selectLang q-ma-md" v-model="selectLang" filled label="Selecciona un idioma" :options="langs"
+                @input="selectLang" />
 
-        <q-btn label="Traducir" color="primary" class="q-mx-sm" @click="translate" />
-    </div>
+            <q-btn label="Traducir" color="primary" class="q-mx-sm" @click="translate" />
+        </div>
+
+
+        <div>
+            
+        </div>
 
     </div>
-    
 </template>
 
 <style scoped>
@@ -69,7 +73,7 @@ const translate = async () => {
     const promises = [];
     const langCode = selectLang.value.value
     const toTranslate = fields.map(field => field)
-    
+
     toTranslate.forEach((field) => {
         field.forEach((value) => {
             promises.push(translateApi(langCode, value.name))
@@ -87,14 +91,14 @@ const translate = async () => {
 
     const language = await translateApi(langCode, selectLang.value.label);
 
-    save(toTranslate,langCode,language);
+    save(toTranslate, langCode, language);
 }
 
 
-const save = async (toTranslate,langCode,language) => {
+const save = async (toTranslate, langCode, language) => {
     const [departments, spaces, states, advantages, webpage] = toTranslate;
 
-    console.log(langCode,language[langCode]);
+    console.log(langCode, language[langCode]);
 
     const saveLanguage = await api.post(linkLaravel + '/language/save', {
         language: language[langCode].charAt(0).toUpperCase() + language[langCode].slice(1),

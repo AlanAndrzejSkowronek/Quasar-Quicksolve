@@ -1,13 +1,13 @@
 <template>
-   <h4 class="q-ma-md q-my-xl text-center">Espacios</h4>
+   <h4 class="q-ma-md q-my-xl text-left">Espacios</h4>
 
     <div class="flex justify-center items-center column q-pa-md">
-        <q-btn to="/espacio/nuevo" rounded color="primary" glossy icon="add" class="q-ma-md" size="20"/>
         <q-table
         title="Espacios"
         :rows="rows"
         :columns="columns"
         row-key="name"
+        :style="{'width': '80%'}"
         :grid="$q.screen.lt.lg"
         :loading="loading"
         loading-label="Cargando los resultados..."
@@ -23,8 +23,8 @@
             </template>
             <template v-slot:body-cell-ACCIONES="props">
                 <q-td :props="props">
-                    <q-btn :to="'/espacio/' + props.row.ID" round color="primary" glossy icon="edit"/>
-                    <q-btn round color="negative" glossy icon="delete_forever" size="12" @click="borrar(props.row.ID)" class="q-ma-xs"/>
+                    <q-btn :to="'/espacio/' + props.row.ID" color="primary" icon="edit"/>
+                    <q-btn  color="negative" icon="delete_forever" size="12" @click="borrar(props.row.ID)" class="q-ma-xs"/>
                 </q-td>
             </template>
 
@@ -33,7 +33,7 @@
                 <q-card>
                     <q-card-section>
                         <strong class="q-pr-sm">{{ props.row.NOMBRE }}</strong>
-                        <q-btn :to="'/espacio/' + props.row.ID" round color="primary" glossy icon="edit" size="12"/>
+                        <q-btn :to="'/espacio/' + props.row.ID" color="primary" icon="edit" size="12"/>
                         <q-btn round color="negative" glossy icon="delete_forever" size="12" @click="borrar(props.row.ID)" class="q-ma-xs"/>
                     </q-card-section>
                     <q-separator />
@@ -51,6 +51,7 @@
                 </div>
             </template>
         </q-table>
+        <q-btn to="/espacio/nuevo" color="primary" :label="'Agregar Nuevo Espacio'" class="q-ma-md" size="20"/>
     </div>
     
 </template>

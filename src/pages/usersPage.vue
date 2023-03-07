@@ -1,5 +1,5 @@
 <template>
-   <h4 class="q-ma-md q-my-xl text-center">Usuarios</h4>
+   <h4 class="q-ma-md q-my-xl text-left">Usuarios</h4>
     
     <div class="flex justify-center items-center q-pa-md">
         <q-table
@@ -22,7 +22,7 @@
             </template>
             <template v-slot:body-cell-ACCIONES="props">
                 <q-td :props="props">
-                    <q-btn :to="'/usuario/' + props.row.ID" round color="primary" glossy icon="edit"/>
+                    <q-btn :to="'/usuario/' + props.row.ID" color="primary" icon="edit"/>
                 </q-td>
             </template>
 

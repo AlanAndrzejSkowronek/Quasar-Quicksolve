@@ -1,5 +1,5 @@
 <template>
-   <h4 class="q-ma-md q-my-xl text-center">Generar Informes</h4>
+   <h4 class="q-ma-md q-my-xl text-left">Generar Informes</h4>
         <q-form @submit="onSubmit" class="row q-mx-auto justify-center q-my-xl">
         <div class="q-ma-md q-mx-md col-md-2 col-11">
             Inicio

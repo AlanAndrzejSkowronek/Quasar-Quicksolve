@@ -1,11 +1,11 @@
 <template>
-   <h4 class="q-ma-md q-my-xl text-center">Servicios</h4>
+   <h4 class="q-ma-md q-my-xl text-left">Servicios</h4>
     <div class="flex justify-center items-center column q-pa-md">
-        <q-btn to="/servicio/nuevo" rounded color="primary" glossy icon="add" class="q-ma-md" size="20"/>
         <q-table
         title="Servicios"
         :rows="rows"
         :columns="columns"
+        :style="{width: '80%'}"
         row-key="name"
         :grid="$q.screen.lt.lg"
         :loading="loading"
@@ -22,7 +22,7 @@
             </template>
             <template v-slot:body-cell-ACCIONES="props">
                 <q-td :props="props">
-                    <q-btn :to="'/servicio/' + props.row.ID" round color="primary" glossy icon="edit"/>
+                    <q-btn :to="'/servicio/' + props.row.ID" color="primary" icon="edit"/>
                 </q-td>
             </template>
 
@@ -48,6 +48,7 @@
                 </div>
             </template>
         </q-table>
+        <q-btn to="/servicio/nuevo" color="primary" :label="'Agregar Nuevo Servicio'" class="q-ma-md" size="20"/>
     </div>
     
 </template>

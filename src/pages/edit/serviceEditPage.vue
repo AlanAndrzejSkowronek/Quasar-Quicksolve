@@ -1,5 +1,6 @@
 <template>
-    <div class="q-pa-xl q-gutter-lg flex window-height justify-center items-center">
+    <h4 class="q-ma-md q-my-xl text-left">Editar Servicio</h4>
+    <div class="q-pa-xl q-gutter-lg flex justify-center items-center">
       <q-card class="basis-flex-card">
           <q-card-section>
               <div class="text-h6"> Servicio #{{ id }} </div>
