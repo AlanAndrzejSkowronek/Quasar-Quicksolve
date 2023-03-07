@@ -2,8 +2,8 @@ import { api } from "src/boot/axios"
 import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable'
 
-export const linkSpring = "http://localhost:8080"
-export const linkLaravel = "http://localhost:8000"
+export const linkSpring = process.env.TOKEN_URL
+export const linkLaravel = process.env.API_URL
 
 export const translator = async (texts, langs) => {
     let langsFiltered = langs.filter(el => el.lang !== "es" )
