@@ -106,7 +106,7 @@ const searchIncidences = async () => {
     let date_start_formated = date_start.value.split('-').reverse().join('-')
     let date_end_formated = date_end.value.split('-').reverse().join('-')
 
-    const { data } = await api.post(linkLaravel + '/incidences/filter/', {
+    const { data } = await api.post(linkLaravel + '/incidences/filter', {
         start: date_start_formated,
         end: date_end_formated,
         department_id: id
@@ -133,7 +133,7 @@ const searchIncidences = async () => {
             DESCRIPCION: r.description,
             FECHA_INICIO: r.date_start,
             FECHA_FINAL: r.date_end ? r.date_end : "N/A",
-            DURACION: r.date_end !== "N/A" ? r.date_period + ' Días' : "N/A",
+            DURACION: r.date_end !== "N/A" ? r.date_period + ' Día/s' : "N/A",
             ESPACIO: r.space ? r.space.name : "N/A",
             DEPARTAMENTO: r.department ? r.department.name : "N/A",
             USUARIO: r.user ? r.user.username : "N/A",
@@ -145,6 +145,7 @@ const searchIncidences = async () => {
 
 
 const onSubmit = () => {
+    canGeneratePdf.value = false
     if (date_start.value === '' || date_end.value === '') {
         $q.notify({
             message: 'Debe seleccionar una fecha de inicio y una fecha final',

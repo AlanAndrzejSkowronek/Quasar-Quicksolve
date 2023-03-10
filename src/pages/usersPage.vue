@@ -31,7 +31,7 @@
                 <q-card>
                     <q-card-section>
                         <strong class="q-pr-sm">{{ props.row.NOMBRE_USUARIO }}</strong>
-                        <q-btn :to="'/usuario/' + props.row.ID" round color="primary" glossy icon="edit" size="12"/>
+                        <q-btn :to="'/usuario/' + props.row.ID"  color="primary"  icon="edit" size="12"/>
                     </q-card-section>
                     <q-separator />
                     <q-list>

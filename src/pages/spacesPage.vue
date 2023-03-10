@@ -34,7 +34,7 @@
                     <q-card-section>
                         <strong class="q-pr-sm">{{ props.row.NOMBRE }}</strong>
                         <q-btn :to="'/espacio/' + props.row.ID" color="primary" icon="edit" size="12"/>
-                        <q-btn round color="negative" glossy icon="delete_forever" size="12" @click="borrar(props.row.ID)" class="q-ma-xs"/>
+                        <q-btn  color="negative" icon="delete_forever" size="12" @click="borrar(props.row.ID)" class="q-ma-xs"/>
                     </q-card-section>
                     <q-separator />
                     <q-list>
